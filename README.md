@@ -1,6 +1,5 @@
-# Trivia game example
+# Career orientation for Vietnamese
 
-A simple trivia game built with Flutter, the [rebuilder](https://pub.dartlang.org/packages/rebuilder) and the [frideos](https://pub.dartlang.org/packages/frideos) package.
 
 
 **features**:
@@ -13,16 +12,14 @@ A simple trivia game built with Flutter, the [rebuilder](https://pub.dartlang.or
 - Animations
 - Text shadows
 
-
 ### Packages used:
 
 - [Rebuilder](https://pub.dartlang.org/packages/rebuilder)
 - [Frideos-flutter](https://pub.dartlang.org/packages/frideos)
 
+### Things to do
 
-## Screenshots
-![AnimatedGif](screenshots/anim.gif)
-![Screenshot](screenshots/1.png)
-![Screenshot](screenshots/2.png)
-![Screenshot](screenshots/3.png)
-![Screenshot](screenshots/4.png)
+- Change category to 3 types of questions:
+1) Interest: need question, does not need answers,
+2) Ability question with text: Need questions, need correct and incorrect answers in form of text
+3) Ability questions with image: Need questions, need correct and incorrect answers in form of image link in source.
