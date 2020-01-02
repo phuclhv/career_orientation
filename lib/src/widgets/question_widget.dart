@@ -11,8 +11,8 @@ class QuestionWidget extends StatelessWidget {
   final TriviaModel triviaModel;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
+  Widget build(BuildContext context)
+    => Container(
       padding: const EdgeInsets.all(14.0),
       alignment: Alignment.center,
       height: 18 * 4.0,
@@ -34,4 +34,3 @@ class QuestionWidget extends StatelessWidget {
       ),
     );
   }
-}

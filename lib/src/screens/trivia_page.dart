@@ -35,8 +35,8 @@ class _TriviaPageState extends State<TriviaPage> {
     return Rebuilder<TriviaModel>(
         dataModel: appModel.triviaModel,
         rebuilderState: appModel.states.triviaPage,
-        builder: (state, data) {
-          return data.currentQuestion == null
+        builder: (state, data)
+          => data.currentQuestion == null
               ? Container()
               : Container(
                   width: MediaQuery.of(context).size.width,
@@ -45,8 +45,8 @@ class _TriviaPageState extends State<TriviaPage> {
                   child: TriviaMain(
                       triviaStatus: data.triviaStatus,
                       question: data.currentQuestion),
-                );
-        });
+                )
+        );
   }
 }
 
@@ -61,17 +61,17 @@ class TriviaMain extends StatelessWidget {
   Widget build(BuildContext context) {
     final triviaModel = DataModelProvider.of<AppModel>(context).triviaModel;
 
-    return Column(
+    return Column(`
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 22),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
             color: const Color(0xff283593),
             borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(25),
-                bottomRight: Radius.circular(25)),
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20)),
             boxShadow: [
               BoxShadow(color: Colors.blue, blurRadius: 3.0, spreadRadius: 1.5),
             ],
@@ -90,25 +90,9 @@ class TriviaMain extends StatelessWidget {
                   ),
                 ],
               ),
-              /*Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'Corrects: ${triviaModel.triviaStats.corrects.length}',
-                    style: questionsHeaderStyle,
-                  ),
-                  Text(
-                    'Wrongs: ${triviaModel.triviaStats.wrongs.length}',
-                    style: questionsHeaderStyle,
-                  ),
-                  Text(
-                    'Not answered: ${triviaModel.triviaStats.noAnswered.length}',
-                    style: questionsHeaderStyle,
-                  ),
-                ],
-              ),*/
+
               const SizedBox(
-                height: 12,
+                height: 0,
               )
             ],
           ),

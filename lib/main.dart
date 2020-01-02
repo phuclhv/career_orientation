@@ -13,19 +13,19 @@ class App extends StatelessWidget {
   final appModel = AppModel();
 
   @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<bool>(
+  Widget build(BuildContext context)
+    => FutureBuilder<bool>(
         future: appModel.settingsModel.loadTheme(),
-        builder: (context, snapshot) {
-          return !snapshot.hasData
+        builder: (context, snapshot)
+          => !snapshot.hasData
               ? const Center(child: CircularProgressIndicator())
               : DataModelProvider<AppModel>(
                   dataModel: appModel,
                   child: MaterialPage(),
-                );
-        });
+                )
+        );
   }
-}
+
 
 class MaterialPage extends StatelessWidget {
   @override
@@ -35,12 +35,12 @@ class MaterialPage extends StatelessWidget {
     return Rebuilder<Settings>(
         dataModel: appModel.settingsModel.settings,
         rebuilderState: appModel.states.materialPage,
-        builder: (state, data) {
+        builder: (state, data)
           // To rebuild the widget tree, use the materialState
-          return MaterialApp(
+          => MaterialApp(
               title: 'Trivia example',
               theme: themes[data.currentTheme],
-              home: HomePage());
-        });
+              home: HomePage())
+        );
   }
 }
