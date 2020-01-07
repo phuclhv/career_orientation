@@ -163,24 +163,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               style: TextStyle(fontWeight: FontWeight.w500),
                             ),
                           ),
-                          DropdownButton<QuestionDifficulty>(
-                              value: appModel
-                                  .settingsModel.settings.questionsDifficulty,
-                              onChanged: appModel.settingsModel.setDifficulty,
-                              items: [
-                                const DropdownMenuItem<QuestionDifficulty>(
-                                  value: QuestionDifficulty.easy,
-                                  child: Text('Easy'),
-                                ),
-                                const DropdownMenuItem<QuestionDifficulty>(
-                                  value: QuestionDifficulty.medium,
-                                  child: Text('Medium'),
-                                ),
-                                const DropdownMenuItem<QuestionDifficulty>(
-                                  value: QuestionDifficulty.hard,
-                                  child: Text('Hard'),
-                                ),
-                              ]),
+
                         ],
                       ),
                     ],

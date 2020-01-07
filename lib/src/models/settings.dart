@@ -8,5 +8,4 @@ class Settings {
   int countdown = 8000; // milliseconds
   int numQuestions = 5;
   Category categoryChosen;
-  QuestionDifficulty questionsDifficulty = QuestionDifficulty.medium;
 }

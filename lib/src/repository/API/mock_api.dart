@@ -10,11 +10,10 @@ import 'api_interface.dart';
 class MockAPI implements QuestionsAPI {
   @override
   Future<List<Category>> getCategories() async {
-    List<Category> categories = [];
-    categories.addAll([
-      Category(id: 1, name: 'Trắc nghiệm sở thích'),
-      Category(id: 2, name: 'Trắc nghiệm khả năng'),
-      Category(id: 3, name: 'Trắc nghiệm toàn diên'),
+    List<Category> categories = []
+    ..addAll([
+      Category(name: 'Trắc nghiệm sở thích'),
+      Category(name: 'Trắc nghiệm khả năng'),
     ]);
     print(categories);
     return categories;
@@ -25,7 +24,6 @@ class MockAPI implements QuestionsAPI {
       {List<Question> questions,
       int number,
       Category category,
-      QuestionDifficulty difficulty,
       QuestionType type}) async {
     const abilityJson = '''"
       { 'response_code' :0,
@@ -50,7 +48,7 @@ class MockAPI implements QuestionsAPI {
     }"''';
 
     const json =
-        "{\"response_code\":0,\"results\":[{\"category\":\"General Knowledge\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"330 : 15\",\"correct_answer\":\"22\",\"incorrect_answers\":[\"18\",\"20 \",\"16\"]},{\"category\":\"Science: Mathematics\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"In Roman Numerals, what does XL equate to?\",\"correct_answer\":\"40\",\"incorrect_answers\":[\"60\",\"15\",\"90\"]},{\"category\":\"Entertainment: Television\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"Grant Gustin plays which superhero on the CW show of the same name?\",\"correct_answer\":\"The Flash\",\"incorrect_answers\":[\"The Arrow\",\"Black Canary\",\"Daredevil\"]},{\"category\":\"Entertainment: Cartoon & Animations\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"In the 1993 Disney animated series, what is the name of Bonker\'s second partner?\",\"correct_answer\":\"Miranda Wright\",\"incorrect_answers\":[\"Dick Tracy\",\"Eddie Valiant\",\"Dr. Ludwig von Drake\"]},{\"category\":\"Geography\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"How many countries does Mexico border?\",\"correct_answer\":\"3\",\"incorrect_answers\":[\"2\",\"4\",\"1\"]}]}";
+        "{\"response_code\":0,\"results\":[{\"category\":\"Ability\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"330 : 15\",\"correct_answer\":\"22\",\"incorrect_answers\":[\"18\",\"20 \",\"16\"]},{\"category\":\"Science: Mathematics\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"In Roman Numerals, what does XL equate to?\",\"correct_answer\":\"40\",\"incorrect_answers\":[\"60\",\"15\",\"90\"]},{\"category\":\"Entertainment: Television\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"Grant Gustin plays which superhero on the CW show of the same name?\",\"correct_answer\":\"The Flash\",\"incorrect_answers\":[\"The Arrow\",\"Black Canary\",\"Daredevil\"]},{\"category\":\"Entertainment: Cartoon & Animations\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"In the 1993 Disney animated series, what is the name of Bonker\'s second partner?\",\"correct_answer\":\"Miranda Wright\",\"incorrect_answers\":[\"Dick Tracy\",\"Eddie Valiant\",\"Dr. Ludwig von Drake\"]},{\"category\":\"Geography\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"How many countries does Mexico border?\",\"correct_answer\":\"3\",\"incorrect_answers\":[\"2\",\"4\",\"1\"]}]}";
 
     final jsonResponse = convert.jsonDecode(json);
 //    final abilityReponse = convert.jsonDecode(abilityJson);

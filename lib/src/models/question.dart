@@ -1,26 +1,26 @@
-enum QuestionDifficulty { easy, medium, hard }
-
-enum QuestionType { boolean, multiple }
+enum QuestionCategory {Interest, Ability }
+enum QuestionType {Text,Image }
 
 class QuestionModel {
-  QuestionModel({this.question, this.correctAnswer, this.incorrectAnswers});
+  QuestionModel({this.question, this.category, this.correctAnswer, this.incorrectAnswers});
 
-  factory QuestionModel.fromJson(Map<String, dynamic> json) {
-    return QuestionModel(
+  factory QuestionModel.fromJson(Map<String, dynamic> json)
+    => QuestionModel(
         question: json['question'],
         correctAnswer: json['correct_answer'],
         incorrectAnswers: (json['incorrect_answers'] as List)
             .map((answer) => answer.toString())
-            .toList());
-  }
-
+            .toList(),
+        category: json['category']
+    );
   String question;
+  String category;
   String correctAnswer;
   List<String> incorrectAnswers;
 }
 
 class Question {
-  Question({this.question, this.answers, this.correctAnswerIndex});
+  Question({this.question, this.category, this.answers, this.correctAnswerIndex});
   factory Question.fromQuestionModel(QuestionModel model) {
     final List<String> answers = []
       ..add(model.correctAnswer)
@@ -30,19 +30,22 @@ class Question {
     final index = answers.indexOf(model.correctAnswer);
 
     return Question(
-        question: model.question, answers: answers, correctAnswerIndex: index);
+        question: model.question,
+        category: model.category,
+        answers: answers,
+        correctAnswerIndex: index,
+    );
   }
 
   String question;
+  String category;
   List<String> answers;
   int correctAnswerIndex;
   int chosenAnswerIndex;
 
-  bool isCorrect(String answer) {
-    return answers.indexOf(answer) == correctAnswerIndex;
-  }
+  bool isCorrect(String answer)
+    => answers.indexOf(answer) == correctAnswerIndex;
 
-  bool isChosen(String answer) {
-    return answers.indexOf(answer) == chosenAnswerIndex;
-  }
+  bool isChosen(String answer)
+    => answers.indexOf(answer) == chosenAnswerIndex;
 }

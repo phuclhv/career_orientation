@@ -34,10 +34,6 @@ class SettingsModel extends DataModel {
     states.mainPage.rebuild();
   }
 
-  void setDifficulty(QuestionDifficulty difficulty) {
-    settings.questionsDifficulty = difficulty;
-    states.settingsPage.rebuild();
-  }
 
   void setApiType(ApiType type) {
     if (settings.apiType != type) {

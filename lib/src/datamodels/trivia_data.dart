@@ -37,7 +37,7 @@ class TriviaModel extends DataModel {
   Timer timer;
 
   void setupTrivia(List<Question> data) {
-    assert(data.length > 0, 'QUESTIONS NULL');
+    assert(data.isNotEmpty, 'QUESTIONS NULL');
 
     // Reset
     index = 0;
@@ -67,7 +67,7 @@ class TriviaModel extends DataModel {
     states.triviaPage.rebuild();
     timer = Timer.periodic(Duration(milliseconds: refreshTime), (t) {
       currentTime = refreshTime * t.tick;
-
+      print(settings.countdown);
       if (currentTime > settings.countdown) {
         currentTime = 0;
         timer.cancel();

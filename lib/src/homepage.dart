@@ -64,8 +64,8 @@ class SwitchTabWidget extends StatelessWidget {
         Future questionsFuture = appModel.repository.loadQuestions(
             numQuestions: appModel.settingsModel.settings.numQuestions,
             category: appModel.settingsModel.settings.categoryChosen,
-            difficulty: appModel.settingsModel.settings.questionsDifficulty,
-            type: QuestionType.multiple);
+        //    type: QuestionType.multiple
+        );
 
         return Rebuilder(
           rebuilderState: appModel.states.triviaPage,

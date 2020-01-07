@@ -61,7 +61,7 @@ class TriviaMain extends StatelessWidget {
   Widget build(BuildContext context) {
     final triviaModel = DataModelProvider.of<AppModel>(context).triviaModel;
 
-    return Column(`
+    return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
@@ -129,7 +129,7 @@ class TriviaMain extends StatelessWidget {
               child: Text(
                 'Time left: ${((triviaModel.settings.countdown - triviaModel.currentTime) / 1000)}',
                 style: const TextStyle(
-                    color: Colors.white,
+                    color: Colors.blue,
                     fontSize: 12,
                     fontStyle: FontStyle.italic),
               ),

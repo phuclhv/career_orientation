@@ -35,7 +35,6 @@ class Repository {
   Future<List<Question>> loadQuestions(
       {int numQuestions,
       Category category,
-      QuestionDifficulty difficulty,
       QuestionType type}) async {
     questions
       ..clear()

@@ -14,17 +14,18 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context)
-    => FutureBuilder<bool>(
-        future: appModel.settingsModel.loadTheme(),
-        builder: (context, snapshot)
-          => !snapshot.hasData
+  => FutureBuilder<bool>(
+          future: appModel.settingsModel.loadTheme(),
+          builder: (context, snapshot) =>
+          !snapshot.hasData
               ? const Center(child: CircularProgressIndicator())
               : DataModelProvider<AppModel>(
-                  dataModel: appModel,
-                  child: MaterialPage(),
-                )
-        );
-  }
+            dataModel: appModel,
+            child: MaterialPage(),
+          )
+      );
+}
+
 
 
 class MaterialPage extends StatelessWidget {
